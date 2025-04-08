@@ -17,7 +17,7 @@ function App() {
       <InputComponent type="password" placeholder="Password" value={password} onChange={setPassword} />
       <InputComponent type="number" placeholder="Age" value={age} onChange={setAge} />
       <ButtonComponent name="Submit" onClick={() => { }} />
-      <ButtonComponent name="reset" onClick={() => { }} />
+      <ButtonComponent name="Reset" onClick={() => { }} />
     </div>
   )
 }
