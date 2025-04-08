@@ -1,6 +1,8 @@
+import './Inputcomponent.css';
+
 const InputComponent = ({ type, placeholder, value, onChange }) => {
   return (
-    <div>
+    <div className="input-component">
         <label htmlFor={placeholder}>{placeholder}</label>
       <br />
       <input

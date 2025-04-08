@@ -45,7 +45,7 @@
 .App {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   min-height: 100vh;
 }
