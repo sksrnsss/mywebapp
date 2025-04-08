@@ -4,20 +4,44 @@ import './App.css'
 import ButtonComponent from './component/ButtonComponent'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showData, setShowData] = useState(false)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [age, setAge] = useState('')
 
+  const handleSubmit = () => {
+    if(name && email && password && age) {
+      setShowData(true)
+    }
+    
+  }
+
+  const handleReset = () => {
+    setName('')
+    setEmail('')
+    setPassword('')
+    setAge('')
+  }
+
   return (
     <div className="App">
-      <InputComponent type="text" placeholder="Name" value={name} onChange={setName} />
-      <InputComponent type="email" placeholder="Email" value={email} onChange={setEmail} />
-      <InputComponent type="password" placeholder="Password" value={password} onChange={setPassword} />
-      <InputComponent type="number" placeholder="Age" value={age} onChange={setAge} />
-      <ButtonComponent name="Submit" onClick={() => { }} />
-      <ButtonComponent name="Reset" onClick={() => { }} />
+      {
+        !showData ? <>
+          <InputComponent type="text" placeholder="Name" value={name} onChange={setName} />
+          <InputComponent type="email" placeholder="Email" value={email} onChange={setEmail} />
+          <InputComponent type="password" placeholder="Password" value={password} onChange={setPassword} />
+          <InputComponent type="number" placeholder="Age" value={age} onChange={setAge} />
+          <ButtonComponent name="Submit" onClick={() => { handleSubmit() }} />
+          <ButtonComponent name="Reset" onClick={handleReset} />
+        </> : <>
+          <p>Name: {name}</p>
+          <p>Email: {email}</p>
+          <p>Age: {age}</p>
+          <ButtonComponent name="Edit" onClick={() => { setShowData(false) }} />
+        </>
+      }
+
     </div>
   )
 }
