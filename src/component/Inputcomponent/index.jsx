@@ -10,7 +10,6 @@ const InputComponent = ({ type, placeholder, value, onChange }) => {
         placeholder={placeholder}
         value={value}
         onChange={(e) => {
-            console.log(e, 'event)')
             onChange(e.target.value)
         }}
       />
